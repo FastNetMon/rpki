@@ -13,7 +13,7 @@ Add the following dependency to your `Cargo.toml`:
 
 ```
 [dependencies]
-bcder = "^0.1"
+bcder = { git = "https://github.com/FastNetMon/rpki.git", tag = "v0.19.2-fnm2" }
 ```
 
 A guide introducing ASN.1, BER, and how to use this crate is part of the
@@ -25,7 +25,7 @@ source as the [`ber::guide`] module.
 ## Contributing
 
 If you have comments, proposed changes, or would like to contribute,
-please open an issue.
+please open an issue at https://github.com/FastNetMon/rpki/issues.
 
 
 ## License

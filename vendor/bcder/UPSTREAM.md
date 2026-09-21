@@ -1,8 +1,8 @@
 # Upstream provenance
 
-This directory contains the unmodified source of `bcder` 0.7.6, with
-only this provenance file and the package repository metadata added by
-FastNetMon.
+This directory contains the source of `bcder` 0.7.6, with
+code unchanged. FastNetMon maintains the package metadata and documentation;
+upstream sponsorship and inactive vendored CI files have been removed.
 
 - Upstream repository: https://github.com/NLnetLabs/bcder
 - Upstream tag: `v0.7.6`

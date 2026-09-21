@@ -1,20 +1,25 @@
 name: ci
 on: [push, pull_request]
+permissions:
+  contents: read
+
 jobs:
   test:
     name: test
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-        rust: [1.83.0, stable, beta, nightly]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        rust: [1.87.0, stable, nightly]
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v1
-    - name: Install Rust
-      uses: hecrj/setup-rust-action@v1
+      uses: actions/checkout@v7
       with:
-        rust-version: ${{ matrix.rust }}
+        persist-credentials: false
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@v1
+      with:
+        toolchain: ${{ matrix.rust }}
 
     # Because of all the features, we run build and test twice -- once with
     # full features and once without any features at all -- to make it more
@@ -22,6 +27,9 @@ jobs:
     #
     # On Windows, we don’t ever want to have to deal with OpenSSL, so we have
     # a special feature __windows_ci_all that replaces --all-features.
+
+    - if: matrix.rust != 'stable' && matrix.rust != 'nightly'
+      run: rm Cargo.lock
 
     # Clippy.
     #
