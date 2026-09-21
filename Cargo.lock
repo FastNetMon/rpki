@@ -82,8 +82,6 @@ checksum = "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6"
 [[package]]
 name = "bcder"
 version = "0.7.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b593e5aeaf7992d388c08a9831c921cd703718064b3e50ba8e6d666d6cf86ca7"
 dependencies = [
  "bytes",
  "smallvec",
